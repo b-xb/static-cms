@@ -83,7 +83,7 @@ const SidebarContent: FC<SidebarContentProps> = ({ isMobile = false }) => {
   const links = useMemo(
     () =>
       Object.values(additionalLinks).map(
-        ({ id, title, data, options: { icon: iconName } = {} }) => {
+        ({ id, title, data, options: { icon: iconName, order } = {} }) => {
           const icon = getIcon(iconName);
 
           return typeof data === 'string' ? (
@@ -92,6 +92,7 @@ const SidebarContent: FC<SidebarContentProps> = ({ isMobile = false }) => {
               href={data}
               icon={icon}
               data-testid={`${isMobile ? 'mobile-external-nav' : 'sidebar-external-nav'}-${title}`}
+              order={order ?? 0}
             >
               {title}
             </NavLink>
@@ -101,6 +102,7 @@ const SidebarContent: FC<SidebarContentProps> = ({ isMobile = false }) => {
               to={`/page/${id}`}
               icon={icon}
               data-testid={`${isMobile ? 'mobile-page-nav' : 'sidebar-page-nav'}-${title}`}
+              order={order ?? 0}
             >
               {title}
             </NavLink>

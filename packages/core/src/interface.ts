@@ -1254,6 +1254,7 @@ export type EventListener =
 
 export interface AdditionalLinkOptions {
   icon?: string;
+  order?: number;
 }
 
 export interface AdditionalLink {
