@@ -17,7 +17,9 @@
 }
 
 .CMS_Sidebar_items {
-  @apply space-y-2;
+  @apply flex
+    flex-col
+    gap-2;
 }
 
 .CMS_Sidebar_icon {

@@ -70,6 +70,7 @@ const SidebarContent: FC<SidebarContentProps> = ({ isMobile = false }) => {
               data-testid={`${isMobile ? 'mobile-collection-nav' : 'sidebar-collection-nav'}-${
                 collection.label
               }`}
+              order={collection.order ?? 0}
             >
               {collection.label}
             </NavLink>

@@ -302,6 +302,7 @@ export interface BaseCollection {
   media_folder?: string;
   public_folder?: string;
   media_library?: MediaLibraryConfig;
+  order?: number;
 }
 
 export interface BaseCollectionWithDefaults extends Omit<BaseCollection, 'i18n'> {
@@ -326,6 +327,7 @@ export interface BaseFolderCollection<EF extends BaseField = UnknownField> {
   publish?: boolean;
   delete?: boolean;
   nested?: Nested;
+  order?: number;
   meta?: {
     path: string;
   };

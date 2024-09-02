@@ -27,6 +27,7 @@ export interface BaseNavLinkProps {
   className?: string;
   'data-testid'?: string;
   onClick?: MouseEventHandler;
+  order?: number;
 }
 
 export interface NavExternalLinkProps extends BaseNavLinkProps {
@@ -45,6 +46,7 @@ const NavLink: FC<NavLinkProps> = ({
   className,
   'data-testid': dataTestId,
   onClick,
+  order,
   ...otherProps
 }) => {
   const content = useMemo(
@@ -61,7 +63,7 @@ const NavLink: FC<NavLinkProps> = ({
 
   if ('href' in otherProps) {
     return (
-      <li className={classNames(classes.root, className)}>
+      <li className={classNames(classes.root, className)} style={{order}}>
         <a
           href={otherProps.href}
           target="_blank"
@@ -80,7 +82,7 @@ const NavLink: FC<NavLinkProps> = ({
   }
 
   return (
-    <li className={classNames(classes.root, className)}>
+    <li className={classNames(classes.root, className)} style={{order}}>
       <BaseNavLink
         to={otherProps.to}
         className={classNames(
